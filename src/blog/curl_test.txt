@@ -1,0 +1,22 @@
+
+
+curl -X POST -d "username=abc&password=123" http://localhost:8000/api/auth/token/
+
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFiYyIsInVzZXJfaWQiOjYsImVtYWlsIjoiYWJjQDEuY29tIiwiZXhwIjoxNDg1MzEwNDg2fQ.2Q57KS6N2wegoUQeDtor3mr8Du7OSlqPmeHne1EzgYg
+
+
+curl -X POST -H "Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFiYyIsInVzZXJfaWQiOjYsImVtYWlsIjoiYWJjQDEuY29tIiwiZXhwIjoxNDg1MzEwNDg2fQ.2Q57KS6N2wegoUQeDtor3mr8Du7OSlqPmeHne1EzgYg" -H "Content-Type: application/json" -d '{"content":"another try"}' 'http://localhost:8000/api/comments/create/?slug=title2&type=post'
+
+
+curl -X POST -H "Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFiYyIsInVzZXJfaWQiOjYsImVtYWlsIjoiYWJjQDEuY29tIiwiZXhwIjoxNDg1MzEwNDg2fQ.2Q57KS6N2wegoUQeDtor3mr8Du7OSlqPmeHne1EzgYg" -H "Content-Type: application/json" -d '{"content":"some reply to another try"}' 'http://localhost:8000/api/comments/create/?slug=title2&type=post&parent_id=10'
+
+
+
+curl -X POST -d "username=abcabc&password=123" http://localhost:8000/api/auth/token/
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFiY2FiYyIsInVzZXJfaWQiOjUsImVtYWlsIjoiMUAxLmNvbSIsImV4cCI6MTQ4NTMxMDc4NX0.YCNBUJe2wwBuA6UpAQ8s224CdHe1SdyZvdeYqrZ1eaY
+
+
+curl -X POST -H "Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFiY2FiYyIsInVzZXJfaWQiOjUsImVtYWlsIjoiMUAxLmNvbSIsImV4cCI6MTQ4NTMxMDc4NX0.YCNBUJe2wwBuA6UpAQ8s224CdHe1SdyZvdeYqrZ1eaY" -H "Content-Type: application/json" -d '{"content":"my new reply to another try"}' 'http://localhost:8000/api/comments/create/?slug=title2&type=post&parent_id=10'
+
